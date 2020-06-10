@@ -1,8 +1,9 @@
 do_state_tasks <- function(oldest_active_sites, ...) {
-  split_inventory(summary_file='1_fetch/tmp/state_splits.yml', sites_info=oldest_active_sites)
-
   # create 1_fetch/tmp directory
   if(!dir.exists('1_fetch/tmp')) dir.create('1_fetch/tmp')
+
+  # Call split inventory function
+  split_inventory(summary_file='1_fetch/tmp/state_splits.yml', sites_info=oldest_active_sites)
 
   # Define task table rows
   # TODO: DEFINE A VECTOR OF TASK NAMES HERE
