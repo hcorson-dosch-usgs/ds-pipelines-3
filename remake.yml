@@ -6,6 +6,7 @@ packages:
   - urbnmapr
   - rnaturalearth
   - cowplot
+  - scipiper
 
 sources:
   - 1_fetch/src/find_oldest_sites.R
