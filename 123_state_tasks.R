@@ -30,7 +30,7 @@ do_state_tasks <- function(oldest_active_sites, ...) {
     },
     # make commands that call plot_site_data()
     command = function(target_name, steps, ...) {
-      sprintf("plot_site_data(out_file='%s', site_data=%s, parameter=parameter)", target_name, steps[['download']]$target_name)
+      sprintf("plot_site_data(out_file=target_name, site_data=%s, parameter=parameter)", steps[['download']]$target_name)
     }
   )
 

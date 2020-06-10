@@ -49,7 +49,7 @@ targets:
     command: get_site_data(state_info_file='1_fetch/tmp/inventory_WI.tsv', parameter=parameter)
 
   3_visualize/out/timeseries_WI.png:
-    command: plot_site_data(out_file='3_visualize/out/timeseries_WI.png', site_data=WI_data, parameter=parameter)
+    command: plot_site_data(out_file=target_name, site_data=WI_data, parameter=parameter)
 
   WI_tally:
     command: tally_site_obs(site_data=WI_data)
@@ -60,7 +60,7 @@ targets:
     command: get_site_data(state_info_file='1_fetch/tmp/inventory_MN.tsv', parameter=parameter)
 
   3_visualize/out/timeseries_MN.png:
-    command: plot_site_data(out_file='3_visualize/out/timeseries_MN.png', site_data=MN_data, parameter=parameter)
+    command: plot_site_data(out_file=target_name, site_data=MN_data, parameter=parameter)
 
   MN_tally:
     command: tally_site_obs(site_data=MN_data)
@@ -71,7 +71,7 @@ targets:
     command: get_site_data(state_info_file='1_fetch/tmp/inventory_MI.tsv', parameter=parameter)
 
   3_visualize/out/timeseries_MI.png:
-    command: plot_site_data(out_file='3_visualize/out/timeseries_MI.png', site_data=MI_data, parameter=parameter)
+    command: plot_site_data(out_file=target_name, site_data=MI_data, parameter=parameter)
 
   MI_tally:
     command: tally_site_obs(site_data=MI_data)
@@ -82,7 +82,7 @@ targets:
     command: get_site_data(state_info_file='1_fetch/tmp/inventory_IL.tsv', parameter=parameter)
 
   3_visualize/out/timeseries_IL.png:
-    command: plot_site_data(out_file='3_visualize/out/timeseries_IL.png', site_data=IL_data, parameter=parameter)
+    command: plot_site_data(out_file=target_name, site_data=IL_data, parameter=parameter)
 
   IL_tally:
     command: tally_site_obs(site_data=IL_data)
@@ -93,7 +93,7 @@ targets:
     command: get_site_data(state_info_file='1_fetch/tmp/inventory_IN.tsv', parameter=parameter)
 
   3_visualize/out/timeseries_IN.png:
-    command: plot_site_data(out_file='3_visualize/out/timeseries_IN.png', site_data=IN_data, parameter=parameter)
+    command: plot_site_data(out_file=target_name, site_data=IN_data, parameter=parameter)
 
   IN_tally:
     command: tally_site_obs(site_data=IN_data)
@@ -104,7 +104,7 @@ targets:
     command: get_site_data(state_info_file='1_fetch/tmp/inventory_IA.tsv', parameter=parameter)
 
   3_visualize/out/timeseries_IA.png:
-    command: plot_site_data(out_file='3_visualize/out/timeseries_IA.png', site_data=IA_data, parameter=parameter)
+    command: plot_site_data(out_file=target_name, site_data=IA_data, parameter=parameter)
 
   IA_tally:
     command: tally_site_obs(site_data=IA_data)
