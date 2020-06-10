@@ -22,11 +22,35 @@ do_state_tasks <- function(oldest_active_sites, ...) {
     }
   )
 
+  plot_step <- create_task_step(
+    step_name = 'plot',
+    # make target names like "3_visualize/out/timeseries_WI.png"
+    target_name =  function(task_name, ...) {
+      sprintf('3_visualize/out/timeseries_%s.png', task_name)
+    },
+    # make commands that call plot_site_data()
+    command = function(target_name, steps, ...) {
+      sprintf("plot_site_data(out_file=target_name, site_data=%s, parameter=parameter)", steps[['download']]$target_name)
+    }
+  )
+
+  tally_step <- create_task_step(
+    step_name = 'tally',
+    # make target names like "WI_tally"
+    target_name = function(task_name, step_name, ...) {
+      sprintf("%s_%s", task_name, step_name)
+    },
+    # make commands that call tally_site_obs()
+    command = function(target_name, steps, ...) {
+      sprintf("tally_site_obs(site_data=%s)", steps[['download']]$target_name)
+    }
+  )
+
   # Return test results to the parent remake file
   # Create the task plan
   task_plan <- create_task_plan(
     task_names = task_names,
-    task_steps = list(download_step),
+    task_steps = list(download_step, plot_step, tally_step),
     add_complete = FALSE)
   # Create the task remakefile
   create_task_makefile(
@@ -34,7 +58,7 @@ do_state_tasks <- function(oldest_active_sites, ...) {
     task_plan = task_plan,
     makefile = '123_state_tasks.yml',
     include = c('remake.yml'),
-    packages = c("tidyverse", "dataRetrieval"),
+    packages = c("tidyverse", "dataRetrieval", "lubridate"),
     sources = c(...),
     tickquote_combinee_objects = FALSE,
     finalize_funs = c())
